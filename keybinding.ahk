@@ -105,14 +105,3 @@ Send, {Left 1}
 return
 
 #If 
-
-
- 
-
-
-
-
-
-
-
-
