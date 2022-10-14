@@ -3,10 +3,10 @@
 !q::Flag := !Flag
 
 ;normal usage script set
-!ı::send, {up}
-!j::send, {left}
-!k::send, {down}
-!l::send, {right}
+Lalt & ı::send, {up}
+Lalt & j::send, {left}
+Lalt & k::send, {down}
+Lalt & l::send, {right}
 
 ^!j::send,^{left}
 ^!l::send,^{right}
