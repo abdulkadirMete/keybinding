@@ -5,10 +5,10 @@
 ;normal usage script set
 
 #if !GetKeyState("LCtrl")
-Lalt & ı::send, {up}
-Lalt & j::send, {left}
-Lalt & k::send, {down}
-Lalt & l::send, {right}
+Alt & ı::send, {up}
+Alt & j::send, {left}
+Alt & k::send, {down}
+Alt & l::send, {right}
 #if
 
 ^!j::send,^{left}
