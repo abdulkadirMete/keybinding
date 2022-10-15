@@ -3,10 +3,13 @@
 !q::Flag := !Flag
 
 ;normal usage script set
+
+#if !GetKeyState("LCtrl")
 Lalt & ı::send, {up}
 Lalt & j::send, {left}
 Lalt & k::send, {down}
 Lalt & l::send, {right}
+#if
 
 ^!j::send,^{left}
 ^!l::send,^{right}
