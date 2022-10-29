@@ -1,19 +1,25 @@
-﻿#NoEnv
+#NoEnv
 #Persistent
+;normal usage script set
+;flag for switch to developer mode
 !q::Flag := !Flag
 
-;normal usage script set
+;jump between words
+^!j::send,^{left}
+return 
 
-#if !GetKeyState("LCtrl")
+^!l::send,^{right}
+return
+
+;arrow keys
+#if !GetKeyState("LCtrl") && !GetKeyState("Shift")
 Alt & ı::send, {up}
 Alt & j::send, {left}
 Alt & k::send, {down}
 Alt & l::send, {right}
 #if
 
-^!j::send,^{left}
-^!l::send,^{right}
-
+;jump to end of line or start of line
 ^j::send,{home}
 ^l::send,{end}
 
@@ -59,10 +65,8 @@ return
 Send,:
 return
 
-;flag false
+;switch to developer mode if flag true;
 #If (Flag) 
-
-;advanced scripts
 
 !ş::
 Send, {Raw} = () => {}
