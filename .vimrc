@@ -1,7 +1,9 @@
-" install plugvim
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-" reload .vimrc :  :so $MYVIMRC
-" :PlugInstall
+" install plugvim         -> curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" create .vimrc           -> vim ~/.vimrc
+" copy and paste plugins 
+" reload .vimrc           ->  :so $MYVIMRC
+" install git             -> sudo yum install git
+" install plugins         -> :PlugInstall
 
 call plug#begin()
 Plug 'preservim/nerdtree'
