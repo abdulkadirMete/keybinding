@@ -21,3 +21,4 @@ call plug#end()
 map <F2> :NERDTreeToggle<CR>
 inoremap jj <Esc>
 nnoremap <C-p> :Files<Cr>
+set noswapfile
