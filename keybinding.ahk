@@ -65,6 +65,42 @@ return
 Send,:
 return
 
+
+
+
+
+
+;terminal utils
+
+:*:.cdtop::
+SendInput,cd /usr/share/nginx/
+return
+
+:*:.cdnginxconf::
+SendInput,cd /etc/nginx/sites-available{Enter}
+return
+
+:*:.nginxlog::
+SendInput,tail -f /var/log/nginx/*.log{Enter}
+return
+
+:*:.plog::
+SendInput,tail -f /usr/share/nginx/
+return
+
+:*:.phpfpmlog::
+SendInput,tail -f /var/opt/remi/php81/log/php-fpm/error.log{Enter}
+return
+
+:*:.su::
+SendInput,sudo su{Enter}
+return
+
+;end of terminal utils
+
+
+
+
 ;switch to developer mode if flag true;
 #If (Flag) 
 
@@ -93,12 +129,12 @@ Send, {Left 1}
 return
 
 !ç::
-Send,""
+Send,''
 Send, {Left 1}
 return
 
 ç::
-Send,''
+Send,""
 Send, {Left 1}
 return
 
