@@ -1,6 +1,7 @@
 #NoEnv
 #Persistent
-;normal usage script set
+;/* ------------------------- normal usage script set ------------------------ */
+
 ;flag for switch to developer mode
 !q::Flag := !Flag
 
@@ -65,43 +66,45 @@ return
 Send,:
 return
 
+;/* --------------------------- terminal hotstrings -------------------------- */
+
+;/* -------------------------------- beanstalk ec2 ------------------------------- */
+:?*:.cdbeanp::
+SendInput,cd /var/app/current{Enter}
+return
+
+:?*:.beanplog::
+SendInput,tail -f /var/app/current/storage/logs/laravel.log{Enter}
+return
+;/* ---------------------------- end of beanstalk ec2 ---------------------------- */
 
 
-
-
-
-;terminal utils
-
-:*:.cdtop::
+:?*:.cdp::
 SendInput,cd /usr/share/nginx/
 return
 
-:*:.cdnginxconf::
+:?*:.cdnginxconf::
 SendInput,cd /etc/nginx/sites-available{Enter}
 return
 
-:*:.nginxlog::
+:?*:.nginxlog::
 SendInput,tail -f /var/log/nginx/*.log{Enter}
 return
 
-:*:.plog::
+:?*:.plog::
 SendInput,tail -f /usr/share/nginx/
 return
 
-:*:.phpfpmlog::
+:?*:.phpfpmlog::
 SendInput,tail -f /var/opt/remi/php81/log/php-fpm/error.log{Enter}
 return
 
-:*:.su::
+:?*:.su::
 SendInput,sudo su{Enter}
 return
 
-;end of terminal utils
-
-
-
-
-;switch to developer mode if flag true;
+;/* -------------------------- developer hotstrings -------------------------- */
+;check flag is true or not
 #If (Flag) 
 
 !ş::
