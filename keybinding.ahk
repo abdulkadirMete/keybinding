@@ -69,7 +69,7 @@ return
 ;/* --------------------------- terminal hotstrings -------------------------- */
 
 ;/* -------------------------------- beanstalk ec2 ------------------------------- */
-:?*:.cdbeanp::
+:?*:.cdb::
 SendInput,cd /var/app/current{Enter}
 return
 
@@ -81,6 +81,10 @@ return
 
 :?*:.cdp::
 SendInput,cd /usr/share/nginx/
+return
+
+:?*:.getip::
+SendInput,{Raw}dig +short myip.opendns.com @resolver1.opendns.com
 return
 
 :?*:.cdnginxconf::
@@ -99,8 +103,17 @@ return
 SendInput,tail -f /var/opt/remi/php81/log/php-fpm/error.log{Enter}
 return
 
-:?*:.su::
+:?*:.suu::
 SendInput,sudo su{Enter}
+return
+
+;tmp
+:?*:.w1p::
+SendInput,{Raw}y?kuBh2uE!kJgXa
+return
+
+:?*:.cds::
+SendInput,{Raw}cd /var/www/uyanik.tv/html/scripts/
 return
 
 ;/* -------------------------- developer hotstrings -------------------------- */
