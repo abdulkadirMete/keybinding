@@ -153,10 +153,10 @@ return
 ;check flag is true or not
 #If (Flag) 
 
-;!ş::
-;Send, {Raw} = () => {}
-;Send, {Left 7} 
-;return
+!ş::
+Send, {Raw} = () => {}
+Send, {Left 7} 
+return
 
 !+ş::
 Send, {Raw}() => {}
