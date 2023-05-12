@@ -78,7 +78,6 @@ SendInput,tail -f /var/app/current/storage/logs/laravel.log{Enter}
 return
 ;/* ---------------------------- end of beanstalk ec2 ---------------------------- */
 
-
 :?*:.cdp::
 SendInput,cd /usr/share/nginx/
 return
@@ -87,12 +86,8 @@ return
 SendInput,{Raw}dig +short myip.opendns.com @resolver1.opendns.com
 return
 
-:?*:.cdnginxconf::
-SendInput,cd /etc/nginx/sites-available{Enter}
-return
-
 :?*:.nginxlog::
-SendInput,tail -f /var/log/nginx/*.log{Enter}
+SendInput,tail -f /var/log/nginx/*.log -n500{Enter}
 return
 
 :?*:.plog::
@@ -116,14 +111,52 @@ return
 SendInput,{Raw}cd /var/www/uyanik.tv/html/scripts/
 return
 
+:?*:.npmr::
+SendInput,{Raw}npm run dev
+return
+
+:?*:.todo::
+SendInput,{Raw}// TODO: 
+return
+
+;/* ---------------------------- php artisan and other scripts ---------------------------- */
+
+:?*:.phpr::
+SendInput,{Raw}php artisan serve
+return
+
+:?*:.phpr::
+SendInput,{Raw}php artisan serve
+return
+
+:?*:.phpopt::
+SendInput,{Raw}php artisan optimize
+return
+
+:?*:.phpclear::
+clipboard =
+(
+php artisan optimize:clear ; php artisan config:cache ; php artisan route:cache
+)
+SendInput, ^v{Enter}
+return
+
+:?*:.phpf::
+SendInput,{Raw}php artisan migrate:fresh
+return
+
+:?*:.phpm::
+SendInput,{Raw}php artisan make:
+return
+
 ;/* -------------------------- developer hotstrings -------------------------- */
 ;check flag is true or not
 #If (Flag) 
 
-!ş::
-Send, {Raw} = () => {}
-Send, {Left 7} 
-return
+;!ş::
+;Send, {Raw} = () => {}
+;Send, {Left 7} 
+;return
 
 !+ş::
 Send, {Raw}() => {}
@@ -163,4 +196,4 @@ Send,{Raw}${}
 Send, {Left 1}
 return
 
-#If 
+#If
