@@ -5,6 +5,10 @@ echo "Installing Vim Plug..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Install Git (assuming yum package manager)
+# echo "Installing Git..."
+# sudo yum install -y git    
+
 # Create or overwrite .vimrc
 echo "Creating .vimrc..."
 cat > ~/.vimrc << EOF
@@ -30,10 +34,6 @@ EOF
 # Reload .vimrc
 echo "Reloading .vimrc..."
 vim -c ":so $MYVIMRC" -c ":PlugInstall" -c ":q" -c ":q"
-
-# Install Git (assuming yum package manager)
-# echo "Installing Git..."
-# sudo yum install -y git
 
 # Install plugins
 echo "Installing Vim plugins..."
