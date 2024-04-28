@@ -14,15 +14,15 @@ return
 
 ;arrow keys
 #if !GetKeyState("LCtrl") && !GetKeyState("Shift")
-Alt & ı::send, {up}
-Alt & j::send, {left}
-Alt & k::send, {down}
-Alt & l::send, {right}
+Alt & ı::send , {up}
+Alt & j::send , {left}
+Alt & k::send , {down}
+Alt & l::send , {right}
 #if
 
 ;jump to end of line or start of line
-^j::send,{home}
-^l::send,{end}
+^j::send ,{home}
+^l::send ,{end}
 
 !d::send,^+{left}
 ;^n::send,+{up}
@@ -30,8 +30,13 @@ Alt & l::send, {right}
 !Capslock::Tab
 LWin & Capslock::Tab
 
+!Tab::
+Send, ^!{Tab}
+return
+
 !h::
 Send,=
+KeyWait, h
 return
 
 !b::
@@ -66,6 +71,10 @@ return
 Send,:
 return
 
+!ş::
+Send,;
+return
+
 ;/* --------------------------- terminal hotstrings -------------------------- */
 
 ;/* -------------------------------- beanstalk ec2 ------------------------------- */
@@ -78,24 +87,12 @@ SendInput,tail -f /var/app/current/storage/logs/laravel.log{Enter}
 return
 ;/* ---------------------------- end of beanstalk ec2 ---------------------------- */
 
-:?*:.cdp::
-SendInput,cd /usr/share/nginx/
-return
-
 :?*:.getip::
 SendInput,{Raw}dig +short myip.opendns.com @resolver1.opendns.com
 return
 
 :?*:.nginxlog::
-SendInput,tail -f /var/log/nginx/*.log -n500{Enter}
-return
-
-:?*:.plog::
-SendInput,tail -f /usr/share/nginx/
-return
-
-:?*:.phpfpmlog::
-SendInput,tail -f /var/opt/remi/php81/log/php-fpm/error.log{Enter}
+SendInput,tail -f /var/log/nginx/*.log{Enter}
 return
 
 :?*:.suu::
@@ -111,52 +108,22 @@ return
 SendInput,{Raw}cd /var/www/uyanik.tv/html/scripts/
 return
 
-:?*:.npmr::
-SendInput,{Raw}npm run dev
-return
-
 :?*:.todo::
 SendInput,{Raw}// TODO: 
 return
 
-;/* ---------------------------- php artisan and other scripts ---------------------------- */
-
-:?*:.phpr::
-SendInput,{Raw}php artisan serve
-return
-
-:?*:.phpr::
-SendInput,{Raw}php artisan serve
-return
-
-:?*:.phpopt::
-SendInput,{Raw}php artisan optimize
-return
-
-:?*:.phpclear::
-clipboard =
-(
-php artisan optimize:clear ; php artisan config:cache ; php artisan route:cache
-)
-SendInput, ^v{Enter}
-return
-
-:?*:.phpf::
-SendInput,{Raw}php artisan migrate:fresh
-return
-
-:?*:.phpm::
-SendInput,{Raw}php artisan make:
+:?*:.inf::
+SendInput,{Raw}// INFO: 
 return
 
 ;/* -------------------------- developer hotstrings -------------------------- */
 ;check flag is true or not
 #If (Flag) 
 
-!ş::
-Send, {Raw} = () => {}
-Send, {Left 7} 
-return
+;!ş::
+;Send, {Raw} = () => {}
+;Send, {Left 7} 
+;return
 
 !+ş::
 Send, {Raw}() => {}
@@ -196,4 +163,4 @@ Send,{Raw}${}
 Send, {Left 1}
 return
 
-#If
+#If 
